@@ -2,12 +2,13 @@ import React from "react";
 import List from "../lists/List";
 import './input.css'
 
-const list = []
-
 class Input extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {value: ''};
+        this.state = {
+            value: '',
+            list: []
+        };
     }
 
     inputChange = (e) => {
@@ -16,18 +17,20 @@ class Input extends React.Component {
 
     inputSubmit = (e) => {
         e.preventDefault();
-        list.push(this.state.value)
-        this.setState({value: list})
-        this.setState({value: ''})
+        this.setState(prevState => ({
+            list: [...prevState.list, this.state.value]
+          }));
     }
 
     render() {
         return (
-            <form onSubmit={this.inputSubmit}>
-                <input type='text' value={this.state.value} onChange={this.inputChange}></input>
-                <input type="submit" value="Add" />
-                <List list={list} />
-            </form>
+            <div>
+                <form onSubmit={this.inputSubmit}>
+                    <input type='text' value={this.state.value} onChange={this.inputChange}></input>
+                    <input type="submit" value="Add" />
+                </form>
+                <List list={this.state.list} />
+            </div>
         )
     }
 }
