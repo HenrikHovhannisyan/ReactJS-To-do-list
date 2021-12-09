@@ -19,16 +19,15 @@ class Input extends React.Component {
         e.preventDefault();
         this.setState(prevState => ({
             list: [...prevState.list, this.state.value]
-          }));
+        }));
+        this.setState({value: ''});
     }
 
     render() {
         return (
             <div>
-                <form onSubmit={this.inputSubmit}>
-                    <input type='text' value={this.state.value} onChange={this.inputChange}></input>
-                    <input type="submit" value="Add" />
-                </form>
+                <input type='text' value={this.state.value} onChange={this.inputChange}></input>
+                <button type="submit" onClick={this.inputSubmit}>Add</button>
                 <List list={this.state.list} />
             </div>
         )
