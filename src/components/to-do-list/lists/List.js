@@ -1,13 +1,10 @@
 import React from "react";
 import './list.css';
+import ListItem from "./ListItem";
 
 function List(props) {
     const { list } = props;
-    const listMap = list.map( (text, index) =>
-        <li key={`${text}_${index}`}>
-            {text}
-        </li>
-    );
+    const listMap = list.map( (text, index) => <ListItem item={text} key={index} />);
 
     return(
         <ul>
