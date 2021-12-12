@@ -1,5 +1,4 @@
 import React from "react";
-import List from "../lists/List";
 import './input.css'
 
 class Input extends React.Component {
@@ -7,31 +6,28 @@ class Input extends React.Component {
         super(props);
         this.state = {
             value: '',
-            list: []
-        };
+        }
     }
 
     inputChange = (e) => {
         this.setState({value: e.target.value});
     }
 
-    inputSubmit = (e) => {
-        e.preventDefault();
-        this.setState(prevState => ({
-            list: [...prevState.list, this.state.value]
-        }));
+    onSubmitClick = () => {
+        this.props.inputSubmit(this.state.value);
         this.setState({value: ''});
     }
-
+    
     render() {
         return (
             <div>
-                <input type='text' value={this.state.value} onChange={this.inputChange}></input>
-                <button type="submit" onClick={this.inputSubmit}>Add</button>
-                <List list={this.state.list} />
+                <input type='text' value={this.state.value} onChange={this.inputChange} />
+                <button type="submit" onClick={this.onSubmitClick}>Add</button>
             </div>
-        )
+        );
     }
+
+    
 }
 
 export default Input;
