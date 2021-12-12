@@ -3,11 +3,9 @@ import './list.css';
 
 function ListItem(props) {
     return (
-        <div>
-            <li>
-                {props.item}
-            </li>
-        </div>
+        <li>
+            {props.item}
+        </li>
     );
 }
 
