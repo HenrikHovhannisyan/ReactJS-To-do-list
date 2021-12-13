@@ -8,10 +8,18 @@ body {
     justify-content: center;
 }
 
+.toDoList{
+    padding: 10px 10px 0;
+    border: 1px solid #ffebcd;
+    border-radius: 10px;
+}
+
 li {
     list-style-type: none;
-   }
+}
+
 ul {
     margin-left: 0;
+    margin-bottom: 0;
     padding-left: 0;
 }

@@ -22,12 +22,10 @@ class Input extends React.Component {
         return (
             <div>
                 <input type='text' value={this.state.value} onChange={this.inputChange} />
-                <button type="submit" onClick={this.onSubmitClick}>Add</button>
+                <button type="submit" onClick={this.onSubmitClick} className={'btn_add'} disabled={(this.state.value.length === 0) ? true : false} >Add</button>
             </div>
         );
     }
-
-    
 }
 
 export default Input;
