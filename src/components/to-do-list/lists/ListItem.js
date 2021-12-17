@@ -10,7 +10,7 @@ function ListItem(props) {
     return (
         <li className={'listItem'}>
             {props.text}
-            <button onClick={onDeleteItem} className={'btn_delete'}>Delete</button>
+            <button onClick={onDeleteItem} className='btn_delete'>Delete</button>
         </li>
     );
 }

@@ -12,17 +12,15 @@ class App extends React.Component {
   }
 
   inputSubmit = (value) => {
-      this.setState(prevState => ({
-          list: [...prevState.list, value = {id:new Date().getTime(), text: value}]
-      }));
+    this.setState(prevState => ({
+        list: [...prevState.list, value = {id: new Date().getTime(), text: value}]
+    }));
   }
 
   deleteItem = (deleteId) => {
-    this.setState({
-        list: this.state.list.filter((listItem) => {
-          return listItem.id !== deleteId;
-        })
-    });
+    this.setState(prevState => ({
+      list: [...prevState.list.filter( (listItem) => {return listItem.id !== deleteId;} )]
+    }));
   }
 
   render() {
