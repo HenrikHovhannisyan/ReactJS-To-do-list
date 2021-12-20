@@ -13,13 +13,15 @@ class App extends React.Component {
 
   inputSubmit = (value) => {
     this.setState(prevState => ({
-        list: [...prevState.list, value = {id: new Date().getTime(), text: value}]
+        list: [...prevState.list, {id: new Date().getTime(), text: value}]
     }));
   }
 
   deleteItem = (deleteId) => {
     this.setState(prevState => ({
-      list: [...prevState.list.filter( (listItem) => {return listItem.id !== deleteId;} )]
+      // list: [...prevState.list.filter( (listItem) => {return listItem.id !== deleteId;} )]
+      list: prevState.list.filter(listItem => listItem.id !== deleteId)
+
     }));
   }
 
@@ -27,7 +29,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>To Do List</h1>
-        <div className={'toDoList'}>
+        <div className='toDoList'>
           <Input inputSubmit={this.inputSubmit} />
           <List deleteItem={this.deleteItem} lists={this.state.list} />
         </div>
