@@ -19,9 +19,7 @@ class App extends React.Component {
 
   deleteItem = (deleteId) => {
     this.setState(prevState => ({
-      // list: [...prevState.list.filter( (listItem) => {return listItem.id !== deleteId;} )]
       list: prevState.list.filter(listItem => listItem.id !== deleteId)
-
     }));
   }
 
