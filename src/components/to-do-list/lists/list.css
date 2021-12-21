@@ -1,0 +1,19 @@
+.listItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    padding: 0 5px 5px;
+    border-bottom: 1px solid #ffffff;
+}
+
+.listItem:last-child {
+    border: unset;
+}
+
+.btn_delete {
+    background-color: #dc3545;
+    color: #ffffff;
+    margin-left: 5px;
+    cursor: pointer;
+}
